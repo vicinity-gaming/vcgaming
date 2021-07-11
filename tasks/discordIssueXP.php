@@ -37,6 +37,10 @@ class _discordIssueXP extends \IPS\Task
      */
     public function execute()
     {
+        if (!\IPS\Settings::i()->vcg_discord_db_setup)
+        {
+            return 'vcg_discord_xp_db_missing_credentials';
+        }
         \IPS\Task::queue('vcgaming', 'discordIssueXP', ['replace' => true], 3, ['replace']);
         return null;
     }
