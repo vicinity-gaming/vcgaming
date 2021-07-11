@@ -1,0 +1,7 @@
+{
+    "core": {
+        "Queue": {
+            "discordIssueXP": "IPS\\vcgaming\\extensions\\core\\Queue\\discordIssueXP"
+        }
+    }
+}

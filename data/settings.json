@@ -1,0 +1,26 @@
+[
+    {
+        "key": "vcg_discord_db_setup",
+        "default": ""
+    },
+    {
+        "key": "vcg_discord_mysql_db",
+        "default": ""
+    },
+    {
+        "key": "vcg_discord_mysql_host",
+        "default": ""
+    },
+    {
+        "key": "vcg_discord_mysql_pass",
+        "default": ""
+    },
+    {
+        "key": "vcg_discord_mysql_port",
+        "default": ""
+    },
+    {
+        "key": "vcg_discord_mysql_user",
+        "default": ""
+    }
+]
