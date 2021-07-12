@@ -31,7 +31,7 @@ class _discordIssueXP
      */
     public function preQueueData($data)
     {
-        /** @var \IPS\Application\vcgaming\DiscordModels\VoiceLog[] $voiceLogs */
+        /** @var \IPS\vcgaming\DiscordModels\VoiceLog[] $voiceLogs */
         $voiceLogs      = $data['voiceLogs'];
         $memberActivity = [];
         $returnData     = [
@@ -58,7 +58,7 @@ class _discordIssueXP
             ],
             'core_login_links',
             [
-                ['`token_login_method=?`', $data['loginMethodId']],
+                ['`token_login_method`=?', $data['loginMethodId']],
                 \IPS\Db::i()->in('token_identifier', \array_keys($memberActivity)),
             ]
         );
@@ -83,14 +83,14 @@ class _discordIssueXP
              */
             $reindex = false;
 
-            /** @var \IPS\Application\vcgaming\DiscordModels\VoiceLog[] $memberLogs */
-            if ($memberLogs[0]->vc_action === \IPS\Application\vcgaming\DiscordModels\VoiceLog::ACTION_LEAVE)
+            /** @var \IPS\vcgaming\DiscordModels\VoiceLog[] $memberLogs */
+            if ($memberLogs[0]->vc_action === \IPS\vcgaming\DiscordModels\VoiceLog::ACTION_LEAVE)
             {
                 unset($memberLogs[0]);
                 $reindex = true;
             }
             $memberLogsSize = \count($memberLogs);
-            if ($memberLogs[$memberLogsSize]->vc_action === \IPS\Application\vcgaming\DiscordModels\VoiceLog::ACTION_JOIN)
+            if ($memberLogs[$memberLogsSize]->vc_action === \IPS\vcgaming\DiscordModels\VoiceLog::ACTION_JOIN)
             {
                 unset($memberLogs[$memberLogsSize]);
                 $reindex = true;
@@ -114,6 +114,10 @@ class _discordIssueXP
             // Calculate the amount of time the member has spent active in Discord.
             for ($i = 0, $memberLogsSize = \count($memberLogs); $i < $memberLogsSize; $i += 2)
             {
+                if (!isset($memberLogs[$i]) || !isset($memberLogs[$i + 1]))
+                {
+                    break;
+                }
                 $timeToCredit              += $memberLogs[$i + 1]->action_timestamp->getTimestamp() - $memberLogs[$i]->action_timestamp->getTimestamp();
                 $returnData['processed'][] = $memberLogs[$i]->id;
                 $returnData['processed'][] = $memberLogs[$i + 1]->id;
@@ -206,7 +210,7 @@ class _discordIssueXP
     public function postComplete($data, $processed = TRUE)
     {
         // Connect to the Discord DB one last time and set all the relevant voice logs to processed.
-        $discordDb    = \IPS\Db::i(
+        $discordDb = \IPS\Db::i(
             'vcg_discord_db',
             [
                 'sql_host'     => \IPS\Settings::i()->vcg_discord_mysql_host,
@@ -218,9 +222,9 @@ class _discordIssueXP
             ]
         );
         $discordDb->update(
-            \IPS\Application\vcgaming\DiscordModels\VoiceLog::$databaseTable,
+            \IPS\vcgaming\DiscordModels\VoiceLog::$databaseTable,
             [
-                'processed' => true
+                'processed' => true,
             ],
             $discordDb->in('id', $data['processed'])
         );

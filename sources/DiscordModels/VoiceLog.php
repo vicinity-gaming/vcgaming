@@ -1,6 +1,6 @@
 <?php
 
-namespace IPS\Application\vcgaming\DiscordModels;
+namespace IPS\vcgaming\DiscordModels;
 
 /**
  * Class VoiceLog

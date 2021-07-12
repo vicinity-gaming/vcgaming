@@ -74,11 +74,11 @@ class _discordIssueXP extends \IPS\Task
         $voiceLogIter = new \IPS\Patterns\ActiveRecordIterator(
             $discordDb->select(
                 '*',
-                \IPS\Application\vcgaming\DiscordModels\VoiceLog::$databaseTable,
+                \IPS\vcgaming\DiscordModels\VoiceLog::$databaseTable,
                 ['`processed`=?', false],
                 '`action_timestamp`, `vc_action`'
             ),
-            \IPS\Application\vcgaming\DiscordModels\VoiceLog::class
+            \IPS\vcgaming\DiscordModels\VoiceLog::class
         );
 
         \IPS\Task::queue(

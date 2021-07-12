@@ -1,1 +1,9 @@
-{"application_title":"Vicinity Gaming","app_author":"Vicinity Gaming","app_directory":"vcgaming","app_protected":false,"app_website":{"data":{"scheme":"https","host":"vicinitygaming.com","port":null,"user":null,"pass":null,"path":null,"query":"","fragment":null},"queryString":[],"hiddenQueryString":[]},"app_update_check":"","app_hide_tab":true}
+{
+    "application_title": "Vicinity Gaming",
+    "app_author": "Vicinity Gaming",
+    "app_directory": "vcgaming",
+    "app_protected": 0,
+    "app_website": "https:\/\/vicinitygaming.com",
+    "app_update_check": "",
+    "app_hide_tab": 0
+}

@@ -1,0 +1,14 @@
+{
+    "added": [
+        "vcg_discord_activity_xp_rate",
+        "vcg_discord_db_setup",
+        "vcg_discord_mysql_db",
+        "vcg_discord_mysql_host",
+        "vcg_discord_mysql_pass",
+        "vcg_discord_mysql_port",
+        "vcg_discord_mysql_user",
+        "vcg_xp_setup"
+    ],
+    "edited": [],
+    "removed": []
+}
