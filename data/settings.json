@@ -1,5 +1,9 @@
 [
     {
+        "key": "vcg_discord_activity_xp_rate",
+        "default": ""
+    },
+    {
         "key": "vcg_discord_db_setup",
         "default": ""
     },
@@ -21,6 +25,10 @@
     },
     {
         "key": "vcg_discord_mysql_user",
+        "default": ""
+    },
+    {
+        "key": "vcg_xp_setup",
         "default": ""
     }
 ]

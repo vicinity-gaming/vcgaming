@@ -107,7 +107,7 @@ class _dbsettings extends \IPS\Dispatcher\Controller
             }
 
             $settingsForm->saveAsSettings();
-            \IPS\Settings::i()->vcg_discord_db_setup = true;
+            \IPS\Settings::i()->changeValues(['vcg_discord_db_setup' => true]);
             \IPS\Output::i()->redirect($this->url, 'vcg_dbsettings_success');
         }
     }

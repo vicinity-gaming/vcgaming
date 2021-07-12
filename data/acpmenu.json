@@ -6,6 +6,13 @@
             "do": "",
             "restriction": "dbsettings_manage",
             "subcontrollers": ""
+        },
+        "xpsettings": {
+            "tab": "vcgaming",
+            "controller": "xpsettings",
+            "do": "",
+            "restriction": "xpsettings_manage",
+            "subcontrollers": ""
         }
     }
 }

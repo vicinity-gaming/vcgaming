@@ -2,6 +2,9 @@
     "settings": {
         "dbsettings": {
             "dbsettings_manage": "dbsettings_manage"
+        },
+        "xpsettings": {
+            "xpsettings_manage": "xpsettings_manage"
         }
     }
 }

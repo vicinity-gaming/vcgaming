@@ -10,14 +10,14 @@ namespace IPS\Application\vcgaming\DiscordModels;
  *
  * @author Carlos Amores
  *
- * @property int    $id               Row UID.
- * @property string $discord_id       The Discord ID of the member who owns the voice log.
- * @property string $guild_id         The ID of the guild for which the activity was recorded.
- * @property string $channel_id       The ID of the channel which was joined or left.
- * @property int    $vc_action        The action which occurred at the specified time.
- * @property int    $log_type         The type of log which determines the XP rate to be used when issuing the XP.
- * @property string $action_timestamp The moment in time when the action took place.
- * @property bool   $processed        Whether XP has already been issued for the given voice log.
+ * @property int       $id               Row UID.
+ * @property string    $discord_id       The Discord ID of the member who owns the voice log.
+ * @property string    $guild_id         The ID of the guild for which the activity was recorded.
+ * @property string    $channel_id       The ID of the channel which was joined or left.
+ * @property int       $vc_action        The action which occurred at the specified time.
+ * @property int       $log_type         The type of log which determines the XP rate to be used when issuing the XP.
+ * @property \DateTime $action_timestamp The moment in time when the action took place.
+ * @property bool      $processed        Whether XP has already been issued for the given voice log.
  */
 class _VoiceLog extends \IPS\Patterns\ActiveRecord
 {
@@ -52,8 +52,27 @@ class _VoiceLog extends \IPS\Patterns\ActiveRecord
      *
      * @return \IPS\Db
      */
-    public static function db() : \IPS\Db
+    public static function db()
     {
         return \IPS\Db::i('vcg_discord_db');
+    }
+
+    /**
+     * action_timestamp getter.
+     * @return \DateTime
+     * @throws \Exception
+     */
+    public function get_action_timestamp() : \DateTime
+    {
+        return new \DateTime($this->_data['action_timestamp'], new \DateTimeZone('UTC'));
+    }
+
+    /**
+     * action_timestamp setter.
+     * @param \DateTime $date
+     */
+    public function set_action_timestamp(\DateTime $date) : void
+    {
+        $this->_data['action_timestamp'] = $date->setTimezone(new \DateTimeZone('UTC'))->format('Y-m-d H:i:s');
     }
 }
