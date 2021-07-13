@@ -26,6 +26,16 @@ $lang = [
     'vcg_xpsettings_success'              => 'Settings saved successfully',
     // vv Tasks Language Keys vv
     'vcg_discord_xp_missing_setup'        => 'Discord XP task not queued due to application not configured',
-    'vcg_brilliant_discord_not_installed' => 'The Brilliant Discord Integration app is not installed; XP cannot be issued',
+    'vcg_brilliant_discord_not_installed' => 'The Brilliant Discord Integration app is not installed',
     'vcg_issuing_discord_xp'              => 'Issuing XP for Discord activity...',
+    // vv Front Modules Lang vv
+    'module__vcgaming_datavis'            => 'Data Visualisation Module',
+    'vcg_front_no_permission'             => 'You don\'t have permission to view this page',
+    'vcg_front_discord_db_config'         => 'The application is not configured, provide Discord DB credentials in ACP',
+    'vcg_da_member'                       => 'Member',
+    'vcg_da_hours'                        => 'Discord Hours (Month)',
+    'vcg_da_monthly'                      => 'Monthly Discord Leaderboard',
+    // vv Groups Form Lang vv
+    'group__vcgaming_dvdiscordactivity'   => 'VCGaming Discord Data',
+    'g_viewdiscordactivity'               => 'Can view Discord activity data?',
 ];

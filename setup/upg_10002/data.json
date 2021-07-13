@@ -1,9 +1,9 @@
 {
-    "id": 10001,
-    "name": "1.0.1",
+    "id": 10002,
+    "name": "1.1.0",
     "steps": {
-        "queries": false,
-        "lang": false,
+        "queries": true,
+        "lang": true,
         "theme": false,
         "themeSettings": false,
         "javascript": false,
@@ -12,7 +12,7 @@
         "acpSearchKeywords": false,
         "settings": false,
         "tasks": false,
-        "modules": false,
+        "modules": true,
         "widgets": false,
         "whatsnew": false,
         "customOptions": false,

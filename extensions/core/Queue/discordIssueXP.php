@@ -79,21 +79,20 @@ class _discordIssueXP
             /*
              * Since the member logs array is going to be iterated using a for loop so we can skip several indices
              * at once (due to taking values in pairs), it cannot have missing keys. Thus, we must index the array again
-             * if an element is unset; for that we keep track of it with a flag.
+             * if an element is unset.
              */
-            $reindex = false;
 
             /** @var \IPS\vcgaming\DiscordModels\VoiceLog[] $memberLogs */
             if ($memberLogs[0]->vc_action === \IPS\vcgaming\DiscordModels\VoiceLog::ACTION_LEAVE)
             {
                 unset($memberLogs[0]);
-                $reindex = true;
+                $memberLogs = \array_values($memberLogs);
             }
-            $memberLogsSize = \count($memberLogs);
+            $memberLogsSize = \count($memberLogs) - 1;
             if ($memberLogs[$memberLogsSize]->vc_action === \IPS\vcgaming\DiscordModels\VoiceLog::ACTION_JOIN)
             {
                 unset($memberLogs[$memberLogsSize]);
-                $reindex = true;
+                $memberLogs = \array_values($memberLogs);
             }
 
             // If the removal of some log(s) results in an empty array for the given member, remove it as well.
@@ -103,12 +102,7 @@ class _discordIssueXP
                 continue;
             }
 
-            // Reindex the array now that we are certain it has values and it has been marked for reindexing.
-            if ($reindex)
-            {
-                $memberLogs                 = \array_values($memberLogs);
-                $memberActivity[$discordId] = $memberLogs;
-            }
+            $memberActivity[$discordId] = $memberLogs;
 
             $timeToCredit = 0;
             // Calculate the amount of time the member has spent active in Discord.
@@ -197,7 +191,7 @@ class _discordIssueXP
             throw new \OutOfRangeException();
         }
 
-        return ['text' => 'vcg_issuing_discord_xp', 'complete' => $offset / \count($data['memberXp'])];
+        return ['text' => \IPS\Member::loggedIn()->language()->addToStack('vcg_issuing_discord_xp'), 'complete' => $offset / (\count($data['memberXp']) - 1)];
     }
 
     /**

@@ -1,7 +1,9 @@
 {
     "added": [
+        "front\/datavis"
+    ],
+    "edited": [
         "admin\/settings"
     ],
-    "edited": [],
     "removed": []
 }

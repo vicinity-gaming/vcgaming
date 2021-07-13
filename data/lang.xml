@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="vcgaming" version="10001">
+ <app key="vcgaming" version="10004">
   <word key="__app_vcgaming" js="0">Vicinity Gaming</word>
   <word key="r__dbsettings" js="0">Vicinty Discord Database Settings</word>
   <word key="r__dbsettings_manage" js="0">Can edit Discord Database Settings?</word>
@@ -20,7 +20,15 @@
   <word key="vcg_discord_activity_xp_rate" js="0">Standard XP Rate per Second</word>
   <word key="vcg_xpsettings_success" js="0">Settings saved successfully</word>
   <word key="vcg_discord_xp_missing_setup" js="0">Discord XP task not queued due to application not configured</word>
-  <word key="vcg_brilliant_discord_not_installed" js="0">The Brilliant Discord Integration app is not installed; XP cannot be issued</word>
+  <word key="vcg_brilliant_discord_not_installed" js="0">The Brilliant Discord Integration app is not installed</word>
   <word key="vcg_issuing_discord_xp" js="0">Issuing XP for Discord activity...</word>
+  <word key="module__vcgaming_datavis" js="0">Data Visualisation Module</word>
+  <word key="vcg_front_no_permission" js="0">You don't have permission to view this page</word>
+  <word key="vcg_front_discord_db_config" js="0">The application is not configured, provide Discord DB credentials in ACP</word>
+  <word key="vcg_da_member" js="0">Member</word>
+  <word key="vcg_da_hours" js="0">Discord Hours (Month)</word>
+  <word key="vcg_da_monthly" js="0">Monthly Discord Leaderboard</word>
+  <word key="group__vcgaming_dvdiscordactivity" js="0">VCGaming Discord Data</word>
+  <word key="g_viewdiscordactivity" js="0">Can view Discord activity data?</word>
  </app>
 </language>

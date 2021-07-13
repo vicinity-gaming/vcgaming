@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build>
- <module key="admin/settings"><![CDATA[{"default_controller":"","protected":false,"default":null}]]></module>
+ <module key="admin/settings"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
+ <module key="front/datavis"><![CDATA[{"default_controller":"","protected":false,"default":null}]]></module>
  <task frequency="P0Y0M1DT0H0M0S">discordIssueXP</task>
  <setting key="vcg_discord_activity_xp_rate"><![CDATA[{"key":"vcg_discord_activity_xp_rate","default":""}]]></setting>
  <setting key="vcg_discord_db_setup"><![CDATA[{"key":"vcg_discord_db_setup","default":""}]]></setting>

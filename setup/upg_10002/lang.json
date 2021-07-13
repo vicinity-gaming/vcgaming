@@ -1,0 +1,23 @@
+{
+    "normal": {
+        "added": [
+            "module__vcgaming_datavis",
+            "vcg_front_no_permission",
+            "vcg_front_discord_db_config",
+            "vcg_da_member",
+            "vcg_da_hours",
+            "vcg_da_monthly",
+            "group__vcgaming_dvdiscordactivity",
+            "g_viewdiscordactivity"
+        ],
+        "edited": [
+            "vcg_brilliant_discord_not_installed"
+        ],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}
