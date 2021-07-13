@@ -1,0 +1,16 @@
+{
+    "admin": {
+        "settings": {
+            "default_controller": "",
+            "protected": 0,
+            "default": 0
+        }
+    },
+    "front": {
+        "datavis": {
+            "default_controller": "",
+            "protected": false,
+            "default": null
+        }
+    }
+}

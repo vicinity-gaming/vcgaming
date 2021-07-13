@@ -1,0 +1,10 @@
+{
+    "core": {
+        "Queue": {
+            "discordIssueXP": "IPS\\vcgaming\\extensions\\core\\Queue\\discordIssueXP"
+        },
+        "GroupForm": {
+            "dvdiscordactivity": "IPS\\vcgaming\\extensions\\core\\GroupForm\\dvdiscordactivity"
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+    "appicon": {
+        "type": "S",
+        "class": "\\IPS\\Theme\\class_core_admin_global"
+    }
+}

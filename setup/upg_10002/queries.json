@@ -1,0 +1,15 @@
+{
+    "1": {
+        "method": "addColumn",
+        "params": [
+            "core_groups",
+            {
+                "name": "g_viewdiscordactivity",
+                "type": "smallint",
+                "length": 1,
+                "allow_null": false,
+                "default": 0
+            }
+        ]
+    }
+}

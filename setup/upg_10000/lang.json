@@ -1,0 +1,34 @@
+{
+    "normal": {
+        "added": [
+            "__app_vcgaming",
+            "r__dbsettings",
+            "r__dbsettings_manage",
+            "r__xpsettings",
+            "r__xpsettings_manage",
+            "menutab__vcgaming",
+            "menu__vcgaming_settings",
+            "menu__vcgaming_settings_dbsettings",
+            "menu__vcgaming_settings_xpsettings",
+            "vcg_discord_mysql_db",
+            "vcg_discord_mysql_host",
+            "vcg_discord_mysql_pass",
+            "vcg_discord_mysql_port",
+            "vcg_discord_mysql_user",
+            "vcg_failed_db_conn",
+            "vcg_dbsettings_success",
+            "vcg_discord_activity_xp_rate",
+            "vcg_xpsettings_success",
+            "vcg_discord_xp_missing_setup",
+            "vcg_brilliant_discord_not_installed",
+            "vcg_issuing_discord_xp"
+        ],
+        "edited": [],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}
