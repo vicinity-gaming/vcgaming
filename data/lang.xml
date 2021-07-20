@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="vcgaming" version="10004">
+ <app key="vcgaming" version="10008">
   <word key="__app_vcgaming" js="0">Vicinity Gaming</word>
   <word key="r__dbsettings" js="0">Vicinty Discord Database Settings</word>
   <word key="r__dbsettings_manage" js="0">Can edit Discord Database Settings?</word>

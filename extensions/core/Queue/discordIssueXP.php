@@ -197,7 +197,7 @@ class _discordIssueXP
     /**
      * Perform post-completion processing
      *
-     * @param array $data      Data returned from preQueueData
+     * @param array $data      Data about the task as stored in the core_queue database table.
      * @param bool  $processed Was anything processed or not? If preQueueData returns NULL, this will be FALSE.
      * @return    void
      */
@@ -220,7 +220,7 @@ class _discordIssueXP
             [
                 'processed' => true,
             ],
-            $discordDb->in('id', $data['processed'])
+            $discordDb->in('id', $data['data']['processed'])
         );
     }
 }
