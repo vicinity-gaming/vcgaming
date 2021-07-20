@@ -210,7 +210,7 @@ class _discordIssueXP
             [
                 'processed' => true,
             ],
-            $discordDb->in('id', $data['data']['processed'])
+            $discordDb->in('id', \json_decode($data['data'], true)['processed'])
         );
     }
 }
