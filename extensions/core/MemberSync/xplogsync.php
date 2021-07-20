@@ -50,9 +50,16 @@ class _xplogsync
         // Try to update Discord logs table.
         try
         {
-            $discordDb = \IPS\vcgaming\Application::getDiscordDb();
+            \IPS\Application::load('brilliantdiscord', null, ['`app_enabled`=?', true]);
+            \IPS\vcgaming\Application::getDiscordDb()->update(
+                \IPS\vcgaming\DiscordModels\VoiceLog::$databaseTable,
+                [
+                    'discord_id' => \IPS\Db::i()->select('token_identifier', 'core_login_links', ['`token_member`=?', $member->member_id])->first(),
+                ],
+                ['`discord_id`=?', \IPS\Db::i()->select('token_identifier', 'core_login_links', ['`token_member`=?', $member2->member_id])->first()]
+            );
         }
-        catch (\Exception $e)
+        catch (\OutOfRangeException | \Exception $e)
         {
         }
     }
@@ -65,6 +72,22 @@ class _xplogsync
      */
     public function onDelete($member)
     {
+        \IPS\Db::i()->delete(
+            \IPS\vcgaming\ForumModels\XpLog::$databaseTable,
+            ['`member_id`=?', $member->member_id]
+        );
 
+        // Try to delete Discord voice logs for the member.
+        try
+        {
+            \IPS\Application::load('brilliantdiscord', null, ['`app_enabled`=?', true]);
+            \IPS\vcgaming\Application::getDiscordDb()->delete(
+                \IPS\vcgaming\DiscordModels\VoiceLog::$databaseTable,
+                ['`discord_id`=?', \IPS\Db::i()->select('token_identifier', 'core_login_links', ['`token_member`=?', $member->member_id])->first()]
+            );
+        }
+        catch (\OutOfRangeException | \Exception $e)
+        {
+        }
     }
 }
