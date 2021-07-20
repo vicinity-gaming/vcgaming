@@ -60,17 +60,7 @@ class _discordIssueXP extends \IPS\Task
         )->first();
 
         // Connect to the Discord database prior to queueing as to only perform the connection once per task execution.
-        $discordDb    = \IPS\Db::i(
-            'vcg_discord_db',
-            [
-                'sql_host'     => \IPS\Settings::i()->vcg_discord_mysql_host,
-                'sql_user'     => \IPS\Settings::i()->vcg_discord_mysql_user,
-                'sql_pass'     => \IPS\Settings::i()->vcg_discord_mysql_pass,
-                'sql_database' => \IPS\Settings::i()->vcg_discord_mysql_db,
-                'sql_port'     => \IPS\Settings::i()->vcg_discord_mysql_port,
-                'sql_utf8mb4'  => true,
-            ]
-        );
+        $discordDb    = \IPS\vcgaming\Application::getDiscordDb();
         $voiceLogIter = new \IPS\Patterns\ActiveRecordIterator(
             $discordDb->select(
                 '*',

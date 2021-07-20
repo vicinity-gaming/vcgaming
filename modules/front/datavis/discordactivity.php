@@ -22,7 +22,27 @@ class _discordactivity extends \IPS\Dispatcher\Controller
      */
     public function execute()
     {
-        if (!\IPS\Member\Group::load(\IPS\Member::loggedIn()->member_group_id)->g_viewdiscordactivity)
+        // Check if any of the member's groups allows them to view the page.
+        $canView   = false;
+        $groupIter = new \IPS\Patterns\ActiveRecordIterator(
+            \IPS\Db::i()->select(
+                '*',
+                \IPS\Member\Group::$databaseTable,
+                \IPS\Db::i()->in(\IPS\Member\Group::$databasePrefix . \IPS\Member\Group::$databaseColumnId, \IPS\Member::loggedIn()->groups)
+            ),
+            \IPS\Member\Group::class
+        );
+        foreach ($groupIter as $group)
+        {
+            /** @var \IPS\Member\Group $group */
+            if ($group->g_viewdiscordactivity)
+            {
+                $canView = true;
+                break;
+            }
+        }
+
+        if (!$canView)
         {
             \IPS\Output::i()->error('vcg_front_no_permission', '1V101/1');
         }
@@ -51,17 +71,7 @@ class _discordactivity extends \IPS\Dispatcher\Controller
 
         \IPS\Output::i()->title .= \IPS\Member::loggedIn()->language()->addToStack('vcg_da_monthly');
 
-        $discordDb = \IPS\Db::i(
-            'vcg_discord_db',
-            [
-                'sql_host'     => \IPS\Settings::i()->vcg_discord_mysql_host,
-                'sql_user'     => \IPS\Settings::i()->vcg_discord_mysql_user,
-                'sql_pass'     => \IPS\Settings::i()->vcg_discord_mysql_pass,
-                'sql_database' => \IPS\Settings::i()->vcg_discord_mysql_db,
-                'sql_port'     => \IPS\Settings::i()->vcg_discord_mysql_port,
-                'sql_utf8mb4'  => true,
-            ]
-        );
+        $discordDb = \IPS\vcgaming\Application::getDiscordDb();
 
         $date           = new \DateTime('now', new \DateTimeZone('UTC'));
         $memberActivity = [];

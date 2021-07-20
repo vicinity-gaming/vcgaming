@@ -204,17 +204,7 @@ class _discordIssueXP
     public function postComplete($data, $processed = TRUE)
     {
         // Connect to the Discord DB one last time and set all the relevant voice logs to processed.
-        $discordDb = \IPS\Db::i(
-            'vcg_discord_db',
-            [
-                'sql_host'     => \IPS\Settings::i()->vcg_discord_mysql_host,
-                'sql_user'     => \IPS\Settings::i()->vcg_discord_mysql_user,
-                'sql_pass'     => \IPS\Settings::i()->vcg_discord_mysql_pass,
-                'sql_database' => \IPS\Settings::i()->vcg_discord_mysql_db,
-                'sql_port'     => \IPS\Settings::i()->vcg_discord_mysql_port,
-                'sql_utf8mb4'  => true,
-            ]
-        );
+        $discordDb = \IPS\vcgaming\Application::getDiscordDb();
         $discordDb->update(
             \IPS\vcgaming\DiscordModels\VoiceLog::$databaseTable,
             [

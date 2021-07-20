@@ -23,6 +23,8 @@ $lang = [
     'vcg_dbsettings_success'              => 'Settings saved successfully',
     // vv XP Settings Controller Lang vv
     'vcg_discord_activity_xp_rate'        => 'Standard XP Rate per Second',
+    'vcg_community_bot_account'           => 'Community Bot Account',
+    'vcg_community_bot_account_desc'      => 'The member who will appear as having performed automatic XP operations',
     'vcg_xpsettings_success'              => 'Settings saved successfully',
     // vv Tasks Language Keys vv
     'vcg_discord_xp_missing_setup'        => 'Discord XP task not queued due to application not configured',
@@ -30,12 +32,22 @@ $lang = [
     'vcg_issuing_discord_xp'              => 'Issuing XP for Discord activity...',
     // vv Front Modules Lang vv
     'module__vcgaming_datavis'            => 'Data Visualisation Module',
+    'module__vcgaming_utils'              => 'Vicinity Gaming Utilities',
     'vcg_front_no_permission'             => 'You don\'t have permission to view this page',
     'vcg_front_discord_db_config'         => 'The application is not configured, provide Discord DB credentials in ACP',
     'vcg_da_member'                       => 'Member',
     'vcg_da_hours'                        => 'Discord Hours (Month)',
     'vcg_da_monthly'                      => 'Monthly Discord Leaderboard',
+    'vcg_xi_title'                        => 'XP Issuer',
+    'vcg_xi_submit_lang'                  => 'Issue XP',
+    'vcg_xi_member'                       => 'Member',
+    'vcg_xi_xp_amount'                    => 'XP Amount',
+    'vcg_xi_reason'                       => 'Reason',
+    'vcg_xi_reason_warning'               => 'All uses of the XP Issuer are logged and recorded, proceed at your own risk.',
+    'vcg_xi_issued'                       => 'XP Issued',
     // vv Groups Form Lang vv
     'group__vcgaming_dvdiscordactivity'   => 'VCGaming Discord Data',
     'g_viewdiscordactivity'               => 'Can view Discord activity data?',
+    'group__vcgaming_utils'               => 'VCGaming Utilities',
+    'g_usexpissuer'                       => 'Can use the XP issuer tool?',
 ];

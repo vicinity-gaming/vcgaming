@@ -3,8 +3,12 @@
         "Queue": {
             "discordIssueXP": "IPS\\vcgaming\\extensions\\core\\Queue\\discordIssueXP"
         },
+        "MemberSync": {
+            "xplogsync": "IPS\\vcgaming\\extensions\\core\\MemberSync\\xplogsync"
+        },
         "GroupForm": {
-            "dvdiscordactivity": "IPS\\vcgaming\\extensions\\core\\GroupForm\\dvdiscordactivity"
+            "dvdiscordactivity": "IPS\\vcgaming\\extensions\\core\\GroupForm\\dvdiscordactivity",
+            "utils": "IPS\\vcgaming\\extensions\\core\\GroupForm\\utils"
         }
     }
 }

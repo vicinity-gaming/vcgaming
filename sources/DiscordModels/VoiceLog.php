@@ -51,10 +51,11 @@ class _VoiceLog extends \IPS\Patterns\ActiveRecord
      * [ActiveRecord] Database Connection
      *
      * @return \IPS\Db
+     * @throws \Exception
      */
     public static function db()
     {
-        return \IPS\Db::i('vcg_discord_db');
+        return \IPS\vcgaming\Application::getDiscordDb();
     }
 
     /**
