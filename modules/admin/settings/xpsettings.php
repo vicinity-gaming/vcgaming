@@ -44,8 +44,14 @@ class _xpsettings extends \IPS\Dispatcher\Controller
                 'decimals' => true,
             ]
         );
+        $botAccountField     = new \IPS\Helpers\Form\Member(
+            'vcg_community_bot_account',
+            isset(\IPS\Settings::i()->vcg_community_bot_account) ? \IPS\Member::load(\IPS\Settings::i()->vcg_community_bot_account) : null,
+            true
+        );
 
         $xpSettingsForm->add($standardXpRateField);
+        $xpSettingsForm->add($botAccountField);
 
         \IPS\Output::i()->output .= $xpSettingsForm;
 

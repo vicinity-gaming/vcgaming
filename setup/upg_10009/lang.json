@@ -1,0 +1,29 @@
+{
+    "normal": {
+        "added": [
+            "vcg_community_bot_account",
+            "vcg_community_bot_account_desc",
+            "module__vcgaming_utils",
+            "vcg_xi_title",
+            "vcg_xi_submit_lang",
+            "vcg_xi_member",
+            "vcg_xi_xp_amount",
+            "vcg_xi_reason",
+            "vcg_xi_reason_warning",
+            "vcg_xi_issued",
+            "group__vcgaming_utils",
+            "g_usexpissuer"
+        ],
+        "edited": [
+            "vcg_discord_xp_missing_setup",
+            "vcg_brilliant_discord_not_installed",
+            "vcg_front_discord_db_config"
+        ],
+        "removed": []
+    },
+    "js": {
+        "added": [],
+        "edited": [],
+        "removed": []
+    }
+}

@@ -1,5 +1,9 @@
 [
     {
+        "key": "vcg_community_bot_account",
+        "default": ""
+    },
+    {
         "key": "vcg_discord_activity_xp_rate",
         "default": ""
     },

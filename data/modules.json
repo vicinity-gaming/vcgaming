@@ -9,6 +9,11 @@
     "front": {
         "datavis": {
             "default_controller": "",
+            "protected": 0,
+            "default": 0
+        },
+        "utils": {
+            "default_controller": "",
             "protected": false,
             "default": null
         }

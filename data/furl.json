@@ -1,9 +1,13 @@
 {
-    "topLevel" : {},
-    "pages" : {
-        "datavis_da" : {
-            "friendly" : "datavis/discordactivity",
-            "real" : "app=vcgaming&module=datavis&controller=discordactivity"
+    "topLevel": {},
+    "pages": {
+        "datavis_da": {
+            "friendly": "datavis/discordactivity",
+            "real": "app=vcgaming&module=datavis&controller=discordactivity"
+        },
+        "utils_xi": {
+            "friendly" : "utils/xpissuer",
+            "real": "app=vcgaming&module=utils&controller=xpissuer"
         }
     }
 }
