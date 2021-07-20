@@ -1,5 +1,5 @@
-[
-    {
+{
+    "1": {
         "method": "createTable",
         "params": [
             {
@@ -103,7 +103,7 @@
             }
         ]
     },
-    {
+    "2": {
         "method": "addColumn",
         "params": [
             "core_groups",
@@ -116,4 +116,4 @@
             }
         ]
     }
-]
+}

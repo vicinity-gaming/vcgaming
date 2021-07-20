@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <build>
-    <module key="admin/settings"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
-    <module key="front/datavis"><![CDATA[{"default_controller":"","protected":false,"default":null}]]></module>
-    <task frequency="P0Y0M1DT0H0M0S">discordIssueXP</task>
-    <setting key="vcg_discord_activity_xp_rate">
-        <![CDATA[{"key":"vcg_discord_activity_xp_rate","default":""}]]></setting>
-    <setting key="vcg_discord_db_setup"><![CDATA[{"key":"vcg_discord_db_setup","default":""}]]></setting>
-    <setting key="vcg_discord_mysql_db"><![CDATA[{"key":"vcg_discord_mysql_db","default":""}]]></setting>
-    <setting key="vcg_discord_mysql_host"><![CDATA[{"key":"vcg_discord_mysql_host","default":""}]]></setting>
-    <setting key="vcg_discord_mysql_pass"><![CDATA[{"key":"vcg_discord_mysql_pass","default":""}]]></setting>
-    <setting key="vcg_discord_mysql_port"><![CDATA[{"key":"vcg_discord_mysql_port","default":""}]]></setting>
-    <setting key="vcg_discord_mysql_user"><![CDATA[{"key":"vcg_discord_mysql_user","default":""}]]></setting>
-    <setting key="vcg_xp_setup"><![CDATA[{"key":"vcg_xp_setup","default":""}]]></setting>
-    <hook key="appicon"><![CDATA[{"type":"S","class":"\\IPS\\Theme\\class_core_admin_global"}]]></hook>
+ <module key="admin/settings"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
+ <module key="front/datavis"><![CDATA[{"default_controller":"","protected":0,"default":0}]]></module>
+ <module key="front/utils"><![CDATA[{"default_controller":"","protected":false,"default":null}]]></module>
+ <task frequency="P0Y0M1DT0H0M0S">discordIssueXP</task>
+ <setting key="vcg_community_bot_account"><![CDATA[{"key":"vcg_community_bot_account","default":""}]]></setting>
+ <setting key="vcg_discord_activity_xp_rate"><![CDATA[{"key":"vcg_discord_activity_xp_rate","default":""}]]></setting>
+ <setting key="vcg_discord_db_setup"><![CDATA[{"key":"vcg_discord_db_setup","default":""}]]></setting>
+ <setting key="vcg_discord_mysql_db"><![CDATA[{"key":"vcg_discord_mysql_db","default":""}]]></setting>
+ <setting key="vcg_discord_mysql_host"><![CDATA[{"key":"vcg_discord_mysql_host","default":""}]]></setting>
+ <setting key="vcg_discord_mysql_pass"><![CDATA[{"key":"vcg_discord_mysql_pass","default":""}]]></setting>
+ <setting key="vcg_discord_mysql_port"><![CDATA[{"key":"vcg_discord_mysql_port","default":""}]]></setting>
+ <setting key="vcg_discord_mysql_user"><![CDATA[{"key":"vcg_discord_mysql_user","default":""}]]></setting>
+ <setting key="vcg_xp_setup"><![CDATA[{"key":"vcg_xp_setup","default":""}]]></setting>
+ <hook key="appicon"><![CDATA[{"type":"S","class":"\\IPS\\Theme\\class_core_admin_global"}]]></hook>
 </build>
