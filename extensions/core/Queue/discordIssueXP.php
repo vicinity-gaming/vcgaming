@@ -196,6 +196,11 @@ class _discordIssueXP
             $member   = \IPS\Member::load($memberActivityData[$offset]['id']);
             $xpAmount = \round($memberActivityData[$offset]['time'] * \IPS\Settings::i()->vcg_discord_activity_xp_rate);
 
+            if ($xpAmount === (float)0)
+            {
+                continue;
+            }
+
             // Create an XP when issuing XP automatically as well.
             $log              = new \IPS\vcgaming\ForumModels\XpLog();
             $log->member_id   = $member->member_id;
