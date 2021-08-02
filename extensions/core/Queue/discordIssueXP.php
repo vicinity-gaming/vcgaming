@@ -39,6 +39,24 @@ class _discordIssueXP
             'processed' => [],
         ];
 
+        /*
+         * This is a retarded way to implement event XP (or other kinds of XP rates for that matter) but the reason for
+         * this implementation is that when issuing XP in the run() method defined below there is no access to the type
+         * of log for which XP is to be issued. The only data available is the amount of time a person has spent in voice.
+         *
+         * However, here in preQueueData() when the amount of time between two logs is calculated we have got the
+         * VoiceLog object to work with and, therefore we have got access to the type of log and associated XP rate.
+         *
+         * If we calculate the ratio between the events XP rate and the standard XP rate we can multiply the time by
+         * the ratio before adding to the total. This accounts for the time always being multiplied by the standard XP
+         * rate.
+         *
+         * As to why this is utterly retarded; this is a convoluted solution and, it relies on the standard XP rate to
+         * never be zero otherwise we would be multiplying the time by \INF which when cast to an integer value as it
+         * would be when inserted in the database or converted into JSON, it would be equal to zero.
+         */
+        $eventToStandardRatio = \IPS\Settings::i()->vcg_discord_event_activity_xp_rate / \IPS\Settings::i()->vcg_discord_activity_xp_rate;
+
         // Sort the voice logs in a container such that they are broken down by discord ID.
         foreach ($voiceLogs as $voiceLog)
         {
@@ -112,7 +130,14 @@ class _discordIssueXP
                 {
                     break;
                 }
-                $timeToCredit              += $memberLogs[$i + 1]->action_timestamp->getTimestamp() - $memberLogs[$i]->action_timestamp->getTimestamp();
+
+                $timeBetweenLogs = $memberLogs[$i + 1]->action_timestamp->getTimestamp() - $memberLogs[$i]->action_timestamp->getTimestamp();
+                if ($memberLogs[$i]->log_type === \IPS\vcgaming\DiscordModels\VoiceLog::TYPE_EVENT && $memberLogs[$i + 1]->log_type === \IPS\vcgaming\DiscordModels\VoiceLog::TYPE_EVENT)
+                {
+                    $timeBetweenLogs *= $eventToStandardRatio;
+                }
+
+                $timeToCredit              += $timeBetweenLogs;
                 $returnData['processed'][] = $memberLogs[$i]->id;
                 $returnData['processed'][] = $memberLogs[$i + 1]->id;
             }
@@ -167,8 +192,26 @@ class _discordIssueXP
                 throw new \IPS\Task\Queue\OutOfRangeException();
             }
 
-            $member                       = \IPS\Member::load($memberActivityData[$offset]['id']);
-            $member->pp_reputation_points += \round($memberActivityData[$offset]['time'] * \IPS\Settings::i()->vcg_discord_activity_xp_rate);
+            $ts       = new \DateTime();
+            $member   = \IPS\Member::load($memberActivityData[$offset]['id']);
+            $xpAmount = \round($memberActivityData[$offset]['time'] * \IPS\Settings::i()->vcg_discord_activity_xp_rate);
+
+            if ($xpAmount === (float)0)
+            {
+                continue;
+            }
+
+            // Create an XP when issuing XP automatically as well.
+            $log              = new \IPS\vcgaming\ForumModels\XpLog();
+            $log->member_id   = $member->member_id;
+            $log->operator_id = \IPS\Settings::i()->vcg_community_bot_account;
+            $log->xp_amount   = $xpAmount;
+            $log->previous_xp = $member->pp_reputation_points;
+            $log->timestamp   = $ts;
+            $log->reason      = 'Automated Discord XP';
+            $log->save();
+
+            $member->pp_reputation_points += $xpAmount;
             $member->save();
         }
 

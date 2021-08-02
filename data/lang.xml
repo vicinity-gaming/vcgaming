@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <language>
- <app key="vcgaming" version="10009">
+ <app key="vcgaming" version="10010">
   <word key="__app_vcgaming" js="0">Vicinity Gaming</word>
   <word key="r__dbsettings" js="0">Vicinty Discord Database Settings</word>
   <word key="r__dbsettings_manage" js="0">Can edit Discord Database Settings?</word>
@@ -18,6 +18,7 @@
   <word key="vcg_failed_db_conn" js="0">Failed to connect to the database with the given credentials</word>
   <word key="vcg_dbsettings_success" js="0">Settings saved successfully</word>
   <word key="vcg_discord_activity_xp_rate" js="0">Standard XP Rate per Second</word>
+  <word key="vcg_discord_event_activity_xp_rate" js="0">Event XP Rate per Second</word>
   <word key="vcg_community_bot_account" js="0">Community Bot Account</word>
   <word key="vcg_community_bot_account_desc" js="0">The member who will appear as having performed automatic XP operations</word>
   <word key="vcg_xpsettings_success" js="0">Settings saved successfully</word>
