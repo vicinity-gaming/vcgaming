@@ -7,6 +7,7 @@
  <setting key="vcg_community_bot_account"><![CDATA[{"key":"vcg_community_bot_account","default":""}]]></setting>
  <setting key="vcg_discord_activity_xp_rate"><![CDATA[{"key":"vcg_discord_activity_xp_rate","default":""}]]></setting>
  <setting key="vcg_discord_db_setup"><![CDATA[{"key":"vcg_discord_db_setup","default":""}]]></setting>
+ <setting key="vcg_discord_event_activity_xp_rate"><![CDATA[{"key":"vcg_discord_event_activity_xp_rate","default":""}]]></setting>
  <setting key="vcg_discord_mysql_db"><![CDATA[{"key":"vcg_discord_mysql_db","default":""}]]></setting>
  <setting key="vcg_discord_mysql_host"><![CDATA[{"key":"vcg_discord_mysql_host","default":""}]]></setting>
  <setting key="vcg_discord_mysql_pass"><![CDATA[{"key":"vcg_discord_mysql_pass","default":""}]]></setting>

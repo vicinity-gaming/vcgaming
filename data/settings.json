@@ -12,6 +12,10 @@
         "default": ""
     },
     {
+        "key": "vcg_discord_event_activity_xp_rate",
+        "default": ""
+    },
+    {
         "key": "vcg_discord_mysql_db",
         "default": ""
     },

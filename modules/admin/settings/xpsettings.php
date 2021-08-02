@@ -44,6 +44,14 @@ class _xpsettings extends \IPS\Dispatcher\Controller
                 'decimals' => true,
             ]
         );
+        $eventXpRateFile = new \IPS\Helpers\Form\Number(
+            'vcg_discord_event_activity_xp_rate',
+            \IPS\Settings::i()->vcg_discord_event_activity_xp_rate,
+            true,
+            [
+                'decimals' => true
+            ]
+        );
         $botAccountField     = new \IPS\Helpers\Form\Member(
             'vcg_community_bot_account',
             isset(\IPS\Settings::i()->vcg_community_bot_account) ? \IPS\Member::load(\IPS\Settings::i()->vcg_community_bot_account) : null,
@@ -51,11 +59,12 @@ class _xpsettings extends \IPS\Dispatcher\Controller
         );
 
         $xpSettingsForm->add($standardXpRateField);
+        $xpSettingsForm->add($eventXpRateFile);
         $xpSettingsForm->add($botAccountField);
 
         \IPS\Output::i()->output .= $xpSettingsForm;
 
-        if ($values = $xpSettingsForm->values())
+        if ($xpSettingsForm->values())
         {
             $xpSettingsForm->saveAsSettings();
             \IPS\Settings::i()->changeValues(['vcg_xp_setup' => true]);

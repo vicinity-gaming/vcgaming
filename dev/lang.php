@@ -23,6 +23,7 @@ $lang = [
     'vcg_dbsettings_success'              => 'Settings saved successfully',
     // vv XP Settings Controller Lang vv
     'vcg_discord_activity_xp_rate'        => 'Standard XP Rate per Second',
+    'vcg_discord_event_activity_xp_rate'  => 'Event XP Rate per Second',
     'vcg_community_bot_account'           => 'Community Bot Account',
     'vcg_community_bot_account_desc'      => 'The member who will appear as having performed automatic XP operations',
     'vcg_xpsettings_success'              => 'Settings saved successfully',
